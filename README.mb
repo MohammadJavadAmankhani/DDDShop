@@ -1,0 +1,88 @@
+# 🛍️ DDDShop
+
+A **Domain-Driven Design (DDD)** sample project built with **Clean Architecture** principles using **.NET 9**, **EF Core**, and **MediatR**.  
+Designed for developers looking to understand how to structure real-world applications around aggregate roots, domain events, and separation of concerns.
+
+---
+
+## ⚙️ Tech Stack
+
+- [.NET 8](https://dotnet.microsoft.com/)
+- Entity Framework Core (with SQLite)
+- MediatR (CQRS / messaging pattern)
+- xUnit (unit testing)
+- Clean Architecture + DDD building blocks
+
+---
+
+## 🧠 Key DDD Concepts Used
+
+- **Aggregates**: `Order`, `BillingOrder`, `ShippingOrder`
+- **Value Objects**: `Address`
+- **Domain Events**: `OrderPlaced`, `OrderPaid`
+- **Repositories**: Defined by interface in `Domain`, implemented in `Infrastructure`
+- **Event Dispatching**: Via `IDomainEventDispatcher` using MediatR notifications
+
+---
+
+## 🚀 Getting Started
+
+### 1. 🔧 Restore & Build
+
+```bash
+dotnet restore
+dotnet build
+
+2. 🛠️ Apply Migrations & Create DB
+cd DDDShop.Infrastructure
+dotnet ef migrations add InitialCreate --startup-project ../DDDShop.API
+dotnet ef database update --startup-project ../DDDShop.API
+
+3. 🧪 Run Tests
+dotnet test
+
+Swagger UI available at:
+https://localhost:<port>/swagger
+
+
+📦 Sample Seed Data
+When the app starts, a sample order is seeded:
+
+📦 1 Order with:
+
+2 OrderItems
+
+A ShippingAddress
+
+💰 BillingOrder marked as Paid
+
+🚚 ShippingOrder in Preparing status
+
+
+🧪 Testing Philosophy
+Tests are focused on pure domain behavior, such as:
+
+Creating an order
+
+Adding items
+
+Validating business rules
+
+Changing statuses
+
+DDDShop.Tests/Aggregates/*
+
+🧰 Future Improvements
+✅ Integration tests with in-memory EF Core
+
+🔁 Async domain event handlers
+
+📤 Messaging outbox pattern
+
+🔐 Authentication & Authorization
+
+🛒 More aggregates (e.g. Product, Inventory)
+
+👨‍💻 Author
+Made with ❤️ by MohammadJavad Amankhani
+

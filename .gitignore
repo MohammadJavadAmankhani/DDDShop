@@ -1,0 +1,28 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# EF Core Migrations snapshots (optional)
+Migrations/
+
+# VS Code
+.vscode/
+
+# Rider / JetBrains
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# SQLite DB (optional if it's dev-only)
+*.db
+
+.vs
